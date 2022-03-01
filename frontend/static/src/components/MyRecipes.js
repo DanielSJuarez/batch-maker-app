@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
+
 function MyRecipes() {
 
     return (
-        <div>I am a thing</div>
+        <div>
+            <Link to='/create'>+ Add Recipie</Link>
+        </div>
     )
 
 }

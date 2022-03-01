@@ -31,22 +31,18 @@ class Recipe(models.Model):
 class Step(models.Model):
 
     MEASURE = (
-        ('GRM', 'Gram'),
-        ('CUP', 'Cup'),
-    )
-
-    UNIT = (
+        ('GRM', 'Grams'),
+        ('CUP', 'Cups'),
         ('OUC', 'Ounces'),
         ('LBS', 'Pounds'),
+        ('UNT', 'Unit'),
     )
 
     step_name = models.CharField(max_length=255, null=True)
     directions = models.TextField(blank=True)
     ingredient = models.CharField(max_length=255, null=True)
     amount_measure = models.IntegerField(default=0)
-    measure = models.CharField(max_length=3, choices=MEASURE, default='CUP')
-    amount_unit = models.IntegerField(default=0)
-    unit = models.CharField(max_length=3, choices=UNIT, default='OUC')
+    measure = models.CharField(max_length=3, choices=MEASURE, default='UNT')
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
 
     def __str__(self):

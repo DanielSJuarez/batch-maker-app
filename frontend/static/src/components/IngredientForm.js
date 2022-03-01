@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Cookies, { attributes } from 'js-cookie';
 import Form from 'react-bootstrap/Form'
 
-function StepForm() {
+function IngredientForm() {
 
     const [addImage, setAddImage] = useState(null);
     const [title, setTitle] = useState('');
@@ -71,31 +71,16 @@ function StepForm() {
         <div className='formPlacholder'>
             <form onSubmit={handleSubmit}>
                 <div className='col'>
-                    <input className='inputField' type='text' name='stepName' placeholder='Step Name' onChange={handleTitleInput} value={title}/>
+                    <input className='inputField' type='text' name='name' placeholder='Name' onChange={handleTitleInput} value={title}/>
                 </div>
                 <div className='col'>
-                    <input className='inputField' type='text' name='amountMeasure' placeholder='Amount' onChange={handleTitleInput} value={title}/>
+                    <input className='inputField' type='text' name='brand' placeholder='Brand' onChange={handleTitleInput} value={title}/>
                 </div>
-                <Form.Select aria-label="Default select example">
-                    <option value="UNT">Unit</option>
-                    <option value="OUC">Ounces</option>
-                    <option value="LBS">Pounds</option>
-                    <option value="CUP">Cups</option>
-                    <option value="GRM">Grams</option>
-                </Form.Select>
-                <div className='col'>
-                    <input className='inputField' type='text' name='ingredient' placeholder='Ingredient' onChange={handleTitleInput} value={title}/>
-                </div>
-                <button  type='button'>-</button>
-                <button  type='button'>+</button>
-                <div className='col'>
-                    <input className='inputField' type='text' name='directions' placeholder='What directions go with this step?' onChange={handleTextInput} value={text}/>
-                </div>
-                <button  type='button'>Add Another Step</button>
-            </form >
+                <button  type='button'>Add Another Ingredent</button>
+            </form>
         </div >
     )
 
 }
 
-export default StepForm
+export default IngredientForm

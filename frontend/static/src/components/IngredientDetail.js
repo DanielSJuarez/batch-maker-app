@@ -1,7 +1,12 @@
 function IngredientDetail() {
 
     return (
-        <div>I am a thing</div>
+        <div>
+            <p>name</p>
+            <p>brand</p>
+            <button  type='button'>-</button>
+            <button  type='button'>+</button>
+        </div>
     )
 
 }
