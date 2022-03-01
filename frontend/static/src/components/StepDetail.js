@@ -1,4 +1,4 @@
-function StepDetail() {
+function StepDetail({step_name, amount_measure, measure, ingredient, directions}) {
 
     return (
         <div>

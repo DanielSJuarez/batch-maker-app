@@ -1,3 +1,5 @@
+import StepList from "./StepList"
+
 function RecipeDetail({creator, recipe_name, cook_temp, cook_time, yield_name, yield_quantity}) {
 
     return (
@@ -11,6 +13,9 @@ function RecipeDetail({creator, recipe_name, cook_temp, cook_time, yield_name, y
             <section>
                 <p>{yield_quantity} {yield_name}</p>
                 <button type="button">Adjust</button>
+            </section>
+            <section>
+                <StepList/>
             </section>
         <button type="button">Edit this Recipe</button>
         </div>
