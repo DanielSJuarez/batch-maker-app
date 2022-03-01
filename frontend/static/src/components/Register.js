@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import { useOutletContext } from "react-router-dom";
 
 function Register(props){
-    const [auth, setAuth] = useOutletContext();
+    const [auth, setAuth, navigate] = useOutletContext();
     const [newState, setNewState] = useState({
         username: '',
         email: '',
@@ -58,7 +58,7 @@ function Register(props){
                 password2: '',
             })
         }
-        navigate('/articles')
+        // navigate('/recipes')
     }
 
         return (
