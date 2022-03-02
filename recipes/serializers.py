@@ -19,7 +19,7 @@ class RecipeCreatorStepSerializer(serializers.ModelSerializer):
     creator = serializers.ReadOnlyField(source = 'author.username')
     class Meta:
         model = Step
-        fields = ('recipe','creator','step_name', 'directions','ingredient', 'measure', 'amount_measure', 'unit', 'amount_unit',)
+        fields = ('recipe','creator','step_name', 'directions','ingredient', 'measure', 'amount_measure',)
 
 
 class RecipeCreatorChangeSerializer(serializers.ModelSerializer):
@@ -33,7 +33,7 @@ class RecipeCreatorChangeStepSerializer(serializers.ModelSerializer):
     creator = serializers.ReadOnlyField(source = 'author.username')
     class Meta:
         model = Step
-        fields = ('recipe','creator','step_name', 'directions','ingredient','measure', 'amount_measure', 'unit', 'amount_unit')
+        fields = ('recipe','creator','step_name', 'directions','ingredient','measure', 'amount_measure')
 
 
 class IngredientSerializer(serializers.ModelSerializer):

@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import StepDetail from './StepDetail';
 import StepForm from './StepForm';
 
-function StepList() {
+function StepList({calculate}) {
     const [steps, setSteps] = useState(null)
     const [addStep, setAddStep] = useState(false)
 
@@ -29,7 +29,7 @@ function StepList() {
     }
 
     const stepList = steps.map(step => (
-        <StepDetail key={step.id} {...step}/> 
+        <StepDetail key={step.id} {...step} calculate={calculate} /> 
     ))
 
     const newStepButton = (

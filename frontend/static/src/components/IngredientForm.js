@@ -6,7 +6,7 @@ function IngredientForm() {
 
     const [name, setName] = useState('');
     const [brand, setBrand] = useState('');
-    const [price, setPrice] = useState(0)
+    const [price, setPrice] = useState('')
 
 
     const handleNameInput = e => {
@@ -58,7 +58,7 @@ function IngredientForm() {
                     <input className='inputField' type='text' name='brand' placeholder='Brand' onChange={handleBrandInput} value={brand}/>
                 </div>
                 <div className='col'>
-                    <input className='inputField' type='text' name='price' placeholder='Price' onChange={handlePriceInput} value={price}/>
+                    <input className='inputField' type='number' name='price' placeholder='Price' onChange={handlePriceInput} value={price}/>
                 </div>
                 <button  type='button'>Add Another Ingredent</button>
             </form>
