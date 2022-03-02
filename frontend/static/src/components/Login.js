@@ -39,6 +39,7 @@ function Login(props){
                 password: ''
             })   
         }
+        navigate('/myrecipes')
     }
 
 

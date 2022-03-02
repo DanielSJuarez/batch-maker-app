@@ -3,7 +3,6 @@ import RecipeDetail from './RecipeDetail'
 
 function MyFavoriteRecipes() {
     const [recipe, setRecipes] = useState(null)
-    // const [addReci, setAddStep] = useState(false)
 
     const handleError = (err) => {
         console.log(err);

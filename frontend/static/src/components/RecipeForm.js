@@ -1,38 +1,26 @@
 import { useState, useEffect } from 'react';
 import Cookies, { attributes } from 'js-cookie';
 import StepForm from './StepForm';
+import { useOutletContext } from "react-router-dom";
+
 
 function RecipeForm() {
+    const [auth, setAuth, navigate] = useOutletContext();
 
-    const [addImage, setAddImage] = useState(null);
-    const [title, setTitle] = useState('');
-    const [text, setText] = useState('');
-    const [summary, setSummary] = useState('');
+    const [image, setImage] = useState(null);
     const [preview, setPreview] = useState('');
-    const [phase, setPhase] = useState('')
-    const [status, setStatus] =  useState('');
-    const [step, setStep] = useState(false)
-
-
-    const handleTitleInput = e => {
-        const addTitle = e.target.value;
-        setTitle(addTitle)
-    }
-
-    const handleTextInput = e => {
-        const addText = e.target.value;
-        setText(addText)
-    }
-
-    const handleSummaryInput = e => {
-        const addSummary = e.target.value;
-        setSummary(addSummary)
-    }
+    const [recipeName, setRecipeName] = useState('');
+    const [yieldName, setYieldName] = useState('');
+    const [yieldQuantity, setYieldQuantity] = useState('');
+    const [status, setStatus] = useState('PRV');
+    const [cookTime, setCookTime] = useState('');
+    const [cookTemp, setCookTemp] = useState('');
+    const [notes, setNotes] = useState('');
 
     const handleImage = e => {
 
         const file = e.target.files[0];
-        setAddImage(file);
+        setImage(file);
 
         const reader = new FileReader();
         reader.onloadend = () => {
@@ -44,11 +32,13 @@ function RecipeForm() {
     const handleSubmit = e => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('title', title)
-        formData.append('text', text)
-        formData.append('summary', summary)
-        formData.append('image', addImage);
-        formData.append('phase', phase);
+        formData.append('recipe_name', recipeName)
+        formData.append('cook_temp', cookTemp)
+        formData.append('cook_time', cookTime)
+        formData.append('image', image);
+        formData.append('notes', notes);
+        formData.append('yield_name', yieldName);
+        formData.append('yield_quantity', yieldQuantity);
 
         const options = {
             method: 'POST',
@@ -60,28 +50,25 @@ function RecipeForm() {
 
         fetch('/api/v1/recipes/user/', options);
         e.target.reset()
-        setTitle('');
-        setText('');
-        setSummary('');
         setPreview('');
-        setPhase('');
-        setAddImage('');
+        setStatus('PRV');
+        setImage('');
+        setRecipeName('');
+        setYieldName('');
+        setYieldQuantity('');
+        setCookTime('');
+        setCookTemp('');
+        setNotes('');
+        navigate('/myrecipes')
     }
 
-    const stepForm = (
-        <StepForm/>
-    )
-
-    const stepButton = (
-        <button  type='button' onClick={()=> setStep(true)}>Add Step</button>
-    )
 
     return (
         <div className='formPlacholder'>
             <p>New Recipe</p>
             <form onSubmit={handleSubmit}>
                 <div className='col'>
-                    <input className='inputField' type='text' name='recipeName' placeholder='Recipe Name' onChange={handleTitleInput} value={title}/>
+                    <input className='inputField' type='text' name='recipeName' placeholder='Recipe Name' onChange={(e) => setRecipeName(e.target.value)} value={recipeName}/>
                 </div>
                 <div className='col'>
                     <input className='inputField' type='file' name='recipeImage' onChange={handleImage}/>
@@ -90,27 +77,27 @@ function RecipeForm() {
                 <div>
                     <p>This recipe will make</p>
                     <div classname='col'>
-                        <input className='inputField' type='text' name='yield_name' placeholder='Amount' onChange={handleSummaryInput} value={summary}/>
+                        <input className='inputField' type='text' name='yield_name' placeholder='Amount' onChange={(e) => setYieldName(e.target.value)} value={yieldName}/>
                     </div>
                     <div classname='col'>
-                        <input className='inputField' type='text' name='yield_quantity' placeholder='cookies, loaves, etc' onChange={handleSummaryInput} value={summary}/>
+                        <input className='inputField' type='text' name='yield_quantity' placeholder='cookies, loaves, etc' onChange={(e) => setYieldQuantity(e.target.value)} value={yieldQuantity}/>
                     </div>
                 </div>
                 <div>
                     <p>Make it Public</p>
-                    <input type="radio" name="private" value={status}/>
+                    <input type="radio" name="private" value={status} onChange={(e) => setStatus('PUB')}/>
                 </div>
                 <div classname='col'>
-                    <input className='inputField' type='text' name='prepTime' placeholder='Prep Time' onChange={handleSummaryInput} value={summary}/>
+                    <input className='inputField' type='text' name='cookTime' placeholder='Cook Time' onChange={(e) => setCookTime(e.target.value)} value={cookTime}/>
                 </div>
                 <div className='col'>
-                    <input className='inputField' type='text' name='cookTemp' placeholder='Cook Temp' onChange={handleTextInput} value={text}/>
+                    <input className='inputField' type='text' name='cookTemp' placeholder='Cook Temp' onChange={(e) => setCookTemp(e.target.value)} value={cookTemp}/>
                 </div>
                 <div>
-                    {step ? stepForm : stepButton}
+                    <StepForm/>
                 </div>
                 <div className='col'>
-                    <input className='inputField' type='text' name='note' placeholder='Notes' onChange={handleTextInput} value={text}/>
+                    <input className='inputField' type='text' name='note' placeholder='Notes' onChange={(e) => setNotes(e.target.value)} value={notes}/>
                 </div>
                 <button type='submit'>Save the Recipe!</button>
             </form>

@@ -38,7 +38,7 @@ function IngredientList() {
 
     return (
         <div>
-            {ingredientList}
+            {ingredientList}    
             {addIngredient ? <IngredientForm/> : newIngredientButton}
         </div>
     )

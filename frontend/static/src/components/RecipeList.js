@@ -3,7 +3,6 @@ import RecipeDetail from './RecipeDetail'
 
 function RecipeList() {
     const [recipe, setRecipes] = useState(null)
-    // const [addReci, setAddStep] = useState(false)
 
     const handleError = (err) => {
         console.log(err);
@@ -30,10 +29,6 @@ function RecipeList() {
     const recipeList = recipe.map(recipe => (
         <RecipeDetail key={recipe.id} {...recipe} />
     ))
-
-    // const newStepButton = (
-    //     <button type='button' onClick={()=> setAddStep(true)} >Add Step</button>
-    // )
 
     return (
         <div>

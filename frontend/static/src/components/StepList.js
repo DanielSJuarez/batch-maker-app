@@ -39,7 +39,7 @@ function StepList() {
     return (
         <div>
             {stepList}
-            {addStep ? <StepForm/> : newStepButton}
+            {addStep ? <StepForm setAddStep={setAddStep}/> : newStepButton}
         </div>
     )
 

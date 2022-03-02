@@ -33,8 +33,7 @@ function IngredientForm() {
             brand: brand,
             price: price
         }
-        
-
+    
         const options = {
             method: 'POST',
             headers: {

@@ -58,7 +58,7 @@ function Register(props){
                 password2: '',
             })
         }
-        // navigate('/recipes')
+        navigate('/myrecipes')
     }
 
         return (
