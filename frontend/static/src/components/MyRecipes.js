@@ -12,7 +12,7 @@ function MyRecipes() {
 
     useEffect(() => {
         const getRecipeSteps = async () => {
-            const response = await fetch('/api/v1/recipes/user').catch(handleError);
+            const response = await fetch('/api/v1/recipes/user/').catch(handleError);
 
             if (!response.ok) {
                 throw new Error('Netword response was not OK!')

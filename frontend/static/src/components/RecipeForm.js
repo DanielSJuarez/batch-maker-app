@@ -58,7 +58,7 @@ function RecipeForm() {
             body: formData,
         }
 
-        fetch('/api/v1/articles/user/', options);
+        fetch('/api/v1/recipes/user/', options);
         e.target.reset()
         setTitle('');
         setText('');

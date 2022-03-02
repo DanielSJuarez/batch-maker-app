@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .models import Recipe, Step
-from .serializers import RecipeSerializer, RecipeCreatorSerializer, RecipeCreatorChangeSerializer, RecipeCreatorChangeStepSerializer, RecipeCreatorStepSerializer
+from .models import Ingredient, Recipe, Step
+from .serializers import RecipeSerializer, RecipeCreatorSerializer, RecipeCreatorChangeSerializer, RecipeCreatorChangeStepSerializer, RecipeCreatorStepSerializer, IngredientEditSerializer, IngredientSerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
 # Create your views here.
@@ -49,6 +49,22 @@ class StepDetailList(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated,)
     queryset = Step.objects.all()
     serializer_class = RecipeCreatorChangeStepSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user) 
+
+class IngredientList(generics.ListCreateAPIView):
+    permission_classes = (IsAuthenticated,)
+    queryset = Ingredient.objects.all()
+    serializer_class = IngredientSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user) 
+
+class IngredientEditList(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsAuthenticated,)
+    queryset = Ingredient.objects.all()
+    serializer_class = IngredientEditSerializer
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user) 

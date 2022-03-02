@@ -13,7 +13,7 @@ import MyRecipies from './components/MyRecipes'
 import PopularRecipes from './components/PopularRecipes'
 import PublicRecipes from './components/PublicRecipes'
 import RecipeForm from './components/RecipeForm'
-import IngredientForm from './components/IngredientForm'
+import IngredientList from './components/IngredientList'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -29,7 +29,7 @@ ReactDOM.render(
           <Route path='public' element={<PopularRecipes/>}/>
           <Route path='popular' element={<PublicRecipes/>}/>
           <Route path='create' element={<RecipeForm/>}/>
-          <Route path='createingredient' element={<IngredientForm/>}/>
+          <Route path='ingredient' element={<IngredientList/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

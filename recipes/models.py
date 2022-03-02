@@ -35,7 +35,7 @@ class Step(models.Model):
         ('CUP', 'Cups'),
         ('OUC', 'Ounces'),
         ('LBS', 'Pounds'),
-        ('UNT', 'Unit'),
+        ('UNT', 'Unit-Type'),
     )
 
     step_name = models.CharField(max_length=255, null=True)
@@ -52,6 +52,7 @@ class Step(models.Model):
 class Ingredient(models.Model):
     name = models.CharField(max_length=255, null=True)
     brand = models.CharField(max_length=255, null=True)
+    price = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.step_name
+        return self.name

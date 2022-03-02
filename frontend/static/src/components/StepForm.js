@@ -77,7 +77,7 @@ function StepForm() {
                     <input className='inputField' type='text' name='amountMeasure' placeholder='Amount' onChange={handleTitleInput} value={title}/>
                 </div>
                 <Form.Select aria-label="Default select example">
-                    <option value="UNT">Unit</option>
+                    <option value="UNT">Unit-Type</option>
                     <option value="OUC">Ounces</option>
                     <option value="LBS">Pounds</option>
                     <option value="CUP">Cups</option>

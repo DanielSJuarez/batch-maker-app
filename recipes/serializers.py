@@ -1,6 +1,6 @@
 from django.dispatch import receiver
 from rest_framework import serializers  
-from .models import Recipe, Step
+from .models import Recipe, Step, Ingredient
 
 
 class RecipeSerializer(serializers.ModelSerializer):
@@ -34,3 +34,14 @@ class RecipeCreatorChangeStepSerializer(serializers.ModelSerializer):
     class Meta:
         model = Step
         fields = ('recipe','creator','step_name', 'directions','ingredient','measure', 'amount_measure', 'unit', 'amount_unit')
+
+
+class IngredientSerializer(serializers.ModelSerializer):
+    class Meta: 
+        model: Ingredient
+        fields = ('__all__')
+
+class IngredientEditSerializer(serializers.ModelSerializer):
+    class Meta: 
+        model: Ingredient
+        fields = ('__all__')

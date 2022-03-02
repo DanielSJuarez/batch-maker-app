@@ -4,7 +4,7 @@ function MyPantry() {
 
     return (
         <div>
-            <Link to='/createingredient'>+ Add Ingredient</Link>
+            <Link to='/ingredient'>+ Add Ingredient</Link>
         </div>
     )
 
