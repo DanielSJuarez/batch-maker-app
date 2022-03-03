@@ -18,17 +18,19 @@ function StepForm({setAddStep}) {
             ingredient: ingredient,
             amount_measure: amount,
             measure: measure,
+            recipe: 1,
         }
     
         const options = {
             method: 'POST',
             headers: {
+                'Content-type': 'application/json',
                 'X-CSRFToken': Cookies.get('csrftoken'),
             },
             body: JSON.stringify(newStep)
         }
 
-        fetch('/api/v1/recipies/1/step', options);
+        fetch('/api/v1/recipes/1/step/', options);
         e.target.reset()
         setAmount('');
         setStepName('');
@@ -44,7 +46,7 @@ function StepForm({setAddStep}) {
                     <input className='inputField' type='text' name='stepName' placeholder='Step Name' onChange={(e) => setStepName(e.target.value)} value={stepName}/>
                 </div>
                 <div className='col'>
-                    <input className='inputField' type='text' name='amountMeasure' placeholder='Amount' onChange={(e) => setAmount(e.target.value)} value={amount}/>
+                    <input className='inputField' type='number' name='amountMeasure' placeholder='Amount' onChange={(e) => setAmount(e.target.value)} value={amount}/>
                 </div>
                 <Form.Select aria-label="Default select example" onChange={(e) => setMeasure(e.target.value)}>
                     <option value="UNT">Unit-Type</option>

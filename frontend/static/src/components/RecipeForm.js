@@ -77,10 +77,10 @@ function RecipeForm() {
                 <div>
                     <p>This recipe will make</p>
                     <div classname='col'>
-                        <input className='inputField' type='text' name='yield_name' placeholder='Amount' onChange={(e) => setYieldName(e.target.value)} value={yieldName}/>
+                        <input className='inputField' type='number' name='yield_quantity' placeholder='Amount' onChange={(e) => setYieldQuantity(e.target.value)} value={yieldQuantity}/>
                     </div>
                     <div classname='col'>
-                        <input className='inputField' type='text' name='yield_quantity' placeholder='cookies, loaves, etc' onChange={(e) => setYieldQuantity(e.target.value)} value={yieldQuantity}/>
+                        <input className='inputField' type='text' name='yield_name' placeholder='cookies, loaves, etc' onChange={(e) => setYieldName(e.target.value)} value={yieldName}/>
                     </div>
                 </div>
                 <div>
@@ -88,10 +88,10 @@ function RecipeForm() {
                     <input type="radio" name="private" value={status} onChange={(e) => setStatus('PUB')}/>
                 </div>
                 <div classname='col'>
-                    <input className='inputField' type='text' name='cookTime' placeholder='Cook Time' onChange={(e) => setCookTime(e.target.value)} value={cookTime}/>
+                    <input className='inputField' type='number' name='cookTime' placeholder='Cook Time' onChange={(e) => setCookTime(e.target.value)} value={cookTime}/>
                 </div>
                 <div className='col'>
-                    <input className='inputField' type='text' name='cookTemp' placeholder='Cook Temp' onChange={(e) => setCookTemp(e.target.value)} value={cookTemp}/>
+                    <input className='inputField' type='number' name='cookTemp' placeholder='Cook Temp' onChange={(e) => setCookTemp(e.target.value)} value={cookTemp}/>
                 </div>
                 <div>
                     <StepForm/>

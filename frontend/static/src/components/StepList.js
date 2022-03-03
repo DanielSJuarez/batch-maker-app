@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import StepDetail from './StepDetail';
 import StepForm from './StepForm';
 
-function StepList({calculate}) {
+function StepList({calculate, id}) {
     const [steps, setSteps] = useState(null)
     const [addStep, setAddStep] = useState(false)
 
@@ -12,7 +12,7 @@ function StepList({calculate}) {
 
     useEffect(() => {
         const getRecipeSteps = async () => {
-            const response = await fetch('/api/v1/recipes/1/step/').catch(handleError);
+            const response = await fetch(`/api/v1/recipes/1/step/`).catch(handleError);
 
             if (!response.ok) {
                 throw new Error('Netword response was not OK!')
@@ -29,7 +29,7 @@ function StepList({calculate}) {
     }
 
     const stepList = steps.map(step => (
-        <StepDetail key={step.id} {...step} calculate={calculate} /> 
+        <StepDetail key={step.id} {...step} calculate={calculate} steps={steps} setSteps={setSteps} /> 
     ))
 
     const newStepButton = (

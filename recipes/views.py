@@ -20,6 +20,9 @@ class RecipeListCreateAPIView(generics.ListCreateAPIView):
         user = self.request.user
         return Recipe.objects.filter(author=user)
 
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
 class RecipieDetailChangeAPIView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated,)
     serializer_class = RecipeCreatorChangeSerializer
@@ -27,6 +30,9 @@ class RecipieDetailChangeAPIView(generics.RetrieveUpdateDestroyAPIView):
        
         user = self.request.user
         return Recipe.objects.filter(author=user)
+    
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 
 class RecipeStepsList(generics.ListCreateAPIView):
@@ -52,6 +58,9 @@ class StepDetailList(generics.RetrieveUpdateDestroyAPIView):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user) 
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 class IngredientList(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated,)

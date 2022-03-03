@@ -1,7 +1,7 @@
 import StepList from "./StepList"
 import {useState} from 'react'
 
-function RecipeDetail({creator, recipe_name, cook_temp, cook_time, yield_name, yield_quantity}) {
+function RecipeDetail({creator, recipe_name, cook_temp, cook_time, yield_name, yield_quantity, id}) {
     const [adjust, setAdjust] = useState(false);
     const [calculate, setCalculate] = useState(1);
     
@@ -38,7 +38,7 @@ function RecipeDetail({creator, recipe_name, cook_temp, cook_time, yield_name, y
             {adjust ? adjustField : adjustButton}
             </section>
             <section>
-                <StepList calculate={calculate}/>
+                <StepList calculate={calculate} id={id}/>
             </section>
         <button type="button">Edit this Recipe</button>
         </div>
