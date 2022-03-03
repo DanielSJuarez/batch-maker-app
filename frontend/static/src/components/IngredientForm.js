@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Cookies, { attributes } from 'js-cookie';
 import Form from 'react-bootstrap/Form'
 
-function IngredientForm() {
+function IngredientForm({setIngredient}) {
     const [name, setName] = useState('');
     const [brand, setBrand] = useState('');
     const [price, setPrice] = useState('');
@@ -47,7 +47,10 @@ function IngredientForm() {
 
         if (!response.ok) {
         throw new Error('Network response was not OK');
-        } 
+        } else {
+            const data = await response.json();
+                
+        }
         setName('');
         setBrand('');
         setPrice(0);

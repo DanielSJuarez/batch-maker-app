@@ -48,8 +48,10 @@ class RecipeStepsList(generics.ListCreateAPIView):
         return Step.objects.filter(recipe=recipe) 
 
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user) 
+    # def perform_create(self, serializer):
+    #     import pdb 
+    #     pdb.set_trace()
+    #     serializer.save(author=self.request.user) 
 
 class StepDetailList(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated,)
@@ -67,13 +69,13 @@ class IngredientList(generics.ListCreateAPIView):
     queryset = Ingredient.objects.all()
     serializer_class = IngredientSerializer
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user) 
+    # def perform_create(self, serializer):
+    #     serializer.save(user=self.request.user) 
 
 class IngredientEditList(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated,)
     queryset = Ingredient.objects.all()
     serializer_class = IngredientEditSerializer
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user) 
+    # def perform_create(self, serializer):
+    #     serializer.save(user=self.request.user) 

@@ -39,7 +39,7 @@ function IngredientList() {
     return (
         <div>
             {ingredientList}    
-            {addIngredient ? <IngredientForm/> : newIngredientButton}
+            {addIngredient ? <IngredientForm setIngredient={setIngredient}/> : newIngredientButton}
         </div>
     )
 

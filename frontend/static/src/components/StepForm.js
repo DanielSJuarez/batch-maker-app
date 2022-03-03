@@ -18,7 +18,7 @@ function StepForm({setAddStep}) {
             ingredient: ingredient,
             amount_measure: amount,
             measure: measure,
-            recipe: 1,
+            recipe: 8,
         }
     
         const options = {
@@ -30,7 +30,7 @@ function StepForm({setAddStep}) {
             body: JSON.stringify(newStep)
         }
 
-        fetch('/api/v1/recipes/1/step/', options);
+        fetch('/api/v1/recipes/8/step/', options);
         e.target.reset()
         setAmount('');
         setStepName('');
