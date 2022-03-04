@@ -40,7 +40,6 @@ function RecipeDetail({creator, recipe_name, cook_temp, cook_time, yield_name, y
             <section>
                 <StepList calculate={calculate} id={id}/>
             </section>
-        <button type="button">Edit this Recipe</button>
         </div>
     )
 

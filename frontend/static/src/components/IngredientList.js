@@ -29,7 +29,7 @@ function IngredientList() {
     }
 
     const ingredientList = ingredient.map(ingredient => (
-        <IngredientDetail key={ingredient.id} {...ingredient} />
+        <IngredientDetail key={ingredient.id} {...ingredient} setIngredient={setIngredient} ingredient={ingredient}/>
     ))
 
     const newIngredientButton = (
@@ -39,7 +39,7 @@ function IngredientList() {
     return (
         <div>
             {ingredientList}    
-            {addIngredient ? <IngredientForm setIngredient={setIngredient}/> : newIngredientButton}
+            {addIngredient ? <IngredientForm setIngredient={setIngredient} ingredient={ingredient}/> : newIngredientButton}
         </div>
     )
 

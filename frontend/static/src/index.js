@@ -25,8 +25,8 @@ ReactDOM.render(
           <Route path='favorite' element={<MyFavoriteRecipes/>}/>
           <Route path='pantry' element={<IngredientList/>}/>
           <Route path='myrecipes' element={<MyRecipies/>}/>
-          <Route path='public' element={<PopularRecipes/>}/>
-          <Route path='popular' element={<PublicRecipes/>}/>
+          <Route path='public' element={<PublicRecipes/>}/>
+          <Route path='popular' element={<PopularRecipes/>}/>
           <Route path='create' element={<RecipeForm/>}/>
         </Route>
       </Routes>

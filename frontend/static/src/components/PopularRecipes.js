@@ -25,7 +25,7 @@ function PopularRecipes() {
     if (!recipe) {
         return <div>Fetching data....</div>
     }
-
+    console.log(recipe)
     const recipeFilterList = recipe.filter(recipe => (
         recipe.catagory === 'POP'
     ))

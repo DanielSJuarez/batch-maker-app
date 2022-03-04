@@ -25,12 +25,8 @@ function PublicRecipes() {
     if (!recipe) {
         return <div>Fetching data....</div>
     }
-
-    const recipeFilterList = recipe.filter(recipe => (
-        recipe.status === 'PUB'
-    ))
-
-    const recipeFilterMap = recipeFilterList.map(recipe => (
+    
+    const recipeFilterMap = recipe.map(recipe => (
         <RecipeDetail key={recipe.id} {...recipe} />
     ))
 

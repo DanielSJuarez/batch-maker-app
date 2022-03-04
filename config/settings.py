@@ -158,6 +158,11 @@ SITE_ID = 1
 
 AUTH_USER_MODEL = 'accounts.User'
 
+# Manage files
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 # Email backend
 # https://docs.djangoproject.com/en/3.0/ref/settings/#email-backend
 

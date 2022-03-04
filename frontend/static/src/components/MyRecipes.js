@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react'
-import RecipeDetail from './RecipeDetail'
+import RecipeFormDetail from "./RecipeFormDetail";
 
 function MyRecipes() {
     const [recipe, setRecipes] = useState(null)
-    // const [addReci, setAddStep] = useState(false)
 
     const handleError = (err) => {
         console.log(err);
@@ -29,7 +28,7 @@ function MyRecipes() {
     }
 
     const recipeList = recipe.map(recipe => (
-        <RecipeDetail key={recipe.id} {...recipe} />
+        <RecipeFormDetail key={recipe.id} {...recipe} />
     ))
 
 

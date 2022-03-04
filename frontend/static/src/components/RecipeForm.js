@@ -32,9 +32,10 @@ function RecipeForm() {
     const handleSubmit = e => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('recipe_name', recipeName)
-        formData.append('cook_temp', cookTemp)
-        formData.append('cook_time', cookTime)
+        formData.append('recipe_name', recipeName);
+        formData.append('cook_temp', cookTemp);
+        formData.append('cook_time', cookTime);
+        formData.append('status', status);
         formData.append('image', image);
         formData.append('notes', notes);
         formData.append('yield_name', yieldName);
